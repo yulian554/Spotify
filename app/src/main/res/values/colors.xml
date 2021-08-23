@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="green_1">#47FB47</color>
+    <color name="green_2">#47FB47</color>
+    <color name="purple">#0C0C0C</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="darkBackground">#202020</color>
+    <color name="Gray">#302C2C</color>opaque white
+    <color name="opaqueWhite">#BCBCBC</color>
+    <color name="darkGreen">#2C7A0A</color>
+</resources>
