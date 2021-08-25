@@ -64,7 +64,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
     }
 
     private fun subscribeToObservers() {
-        viewModel.getSongs().observe(this, { song ->
+        viewModel.getSongs()
+        viewModel.song.observe(this, { song ->
             if (song != null && song.isNotEmpty()) {
                 songs = song
                 val url = song[0].songUrl

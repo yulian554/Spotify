@@ -33,8 +33,9 @@ class HomeFragment : Fragment(), SongsAdapter.IFavorites{
 
     //OBTIENENR DATOS PARA MOSTRAR EN EL RECYCLER
     private fun subscribeToObservers() {
+        viewModel.getSong()
         context?.let {
-            viewModel.getSong().observe(viewLifecycleOwner, {
+            viewModel.song.observe(viewLifecycleOwner, {
                 if (it != null && it.isNotEmpty()) {
                     binding.allSongsProgressBar.isVisible = false
                     binding.rvAllSongs.layoutManager = LinearLayoutManager(context)

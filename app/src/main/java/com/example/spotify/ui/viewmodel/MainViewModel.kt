@@ -4,19 +4,26 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.core.view.isVisible
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import androidx.viewpager2.widget.ViewPager2
 import com.example.spotify.R
 import com.example.spotify.data.model.Song
 import com.example.spotify.domain.GetSongsUseCase
+import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
 
+    private val _song = MutableLiveData<List<Song>>()
+    val song: LiveData<List<Song>> = _song
     private var getSongsUseCase = GetSongsUseCase()
 
-    fun getSongs(): MutableLiveData<List<Song>> {
-        return getSongsUseCase.getSongs()
+    fun getSongs() {
+        viewModelScope.launch {
+            _song.value = getSongsUseCase.getSongForAddFavoritesAndUser(false)
+        }
     }
 
     fun playAndPause(mp: MediaPlayer, ivPlayAndPause: ImageView) {
